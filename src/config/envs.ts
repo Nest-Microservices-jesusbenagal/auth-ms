@@ -5,6 +5,7 @@ interface EnvVars {
   PORT: number;
   NATS_SERVERS: string[];
   MONGO_DB_URL: string;
+  JWT_SECRET: string;
 }
 
 const envsSchema = joi
@@ -12,6 +13,7 @@ const envsSchema = joi
     PORT: joi.number().required(),
     NATS_SERVERS: joi.array().items(joi.string()).required(),
     MONGO_DB_URL: joi.string().required(),
+    JWT_SECRET: joi.string().required(),
   })
   .unknown(true);
 
@@ -28,4 +30,5 @@ export const envs = {
   port: envVars.PORT,
   natsServers: envVars.NATS_SERVERS,
   mongoDbUrl: envVars.MONGO_DB_URL,
+  jwtSecret: envVars.JWT_SECRET,
 };
