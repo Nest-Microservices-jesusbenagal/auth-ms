@@ -11,12 +11,12 @@ export class AuthController {
 
   @MessagePattern("auth.register.user")
   registerUser(@Payload() registerUserDto: RegisterUserDto) {
-    return "Register User";
+    return this.authService.registerUser(registerUserDto);
   }
 
   @MessagePattern("auth.login.user")
   loginUser(@Payload() loginUserDto: LoginUserDto) {
-    return "Login User";
+    return this.authService.loginUser(loginUserDto);
   }
 
   @MessagePattern("auth.verify.user")
